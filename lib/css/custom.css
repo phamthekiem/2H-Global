@@ -1,1 +1,48 @@
-cccd
+:root {
+    --color-primary: #005395;
+    --size-text-product: 160%;
+    --size-text-button: 180%;
+}
+
+/* General */
+a {
+    text-decoration: none !important;
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.background-primary {
+    background-color: var(--color-primary) !important;
+}
+
+.title {
+    font-size: 300%;
+    font-weight: 700;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: #cecece;
+}
+
+.btn {
+    font-size: var(--size-text-button) !important;
+    font-weight: 700;
+}
+
+.border-top-dashed {
+    border-top: 1px dashed #000;
+}
+
+/* Product */
+.price-wrapper p,
+.title-wrapper p {
+    font-size: var(--size-text-product);
+}
+
+.price-wrapper p {
+    font-weight: 600;
+}
+
