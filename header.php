@@ -33,6 +33,4 @@
 	
 	<div id="content" class="site-content">
 
-	<?php do_action( 'before_loop_main_content' ) ?>
-
 		<div class="container">

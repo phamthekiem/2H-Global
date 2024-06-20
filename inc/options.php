@@ -380,11 +380,11 @@ Redux::setSection( $opt_name, array(
 ) );
 
 // -> Homepage Settings Fields
-// Redux::setSection( $opt_name, array(
-//     'title'            => __( 'Home Page', 'shtheme' ),
-//     'id'               => 'homepage',
-//     'icon'             => 'el el-home'
-// ) );
+Redux::setSection( $opt_name, array(
+    'title'            => __( 'Home Page', 'shtheme' ),
+    'id'               => 'homepage',
+    'icon'             => 'el el-home'
+) );
 
 // Redux::setSection( $opt_name, array(
 //     'title'            => __( 'News', 'shtheme' ),
@@ -456,47 +456,104 @@ Redux::setSection( $opt_name, array(
 //     )
 // ) );
 
-// if ( class_exists( 'WooCommerce' ) ) {
-// 	Redux::setSection( $opt_name, array(
-//         'title'            => __( 'Product', 'shtheme' ),
-//         'id'               => 'homepage-product',
-//         'subsection'       => true,
-//         'fields'           => array(
-//             array(
-//                 'id'       => 'list_cat_product',
-//                 'type'     => 'select',
-//                 'multi'    => true,
-//                 'title'    => __( 'Select categories', 'shtheme' ),
-//                 'data' => 'terms',
-// 				'args' => array(
-// 				    'taxonomies' => array( 'product_cat' ),
-// 				    'hide_empty' => false,
-// 				),
-//             ),
-//             array(
-// 			    'id' 		=> 'number_product',
-// 			    'type' 		=> 'slider',
-// 			    'title' 	=> __('Enter number product', 'shtheme'),
-// 			    'default' 	=> 3,
-// 			    'min' 		=> 0,
-// 			    'step' 		=> 1,
-// 			    'max' 		=> 50,
-// 			    'display_value' => 'text'
-// 			),
-// 			array(
-// 			    'id' 		=> 'number_product_row',
-// 			    'type' 		=> 'slider',
-// 			    'title' 	=> __('Enter number product per row', 'shtheme'),
-// 			    'default' 	=> 3,
-// 			    'min' 		=> 1,
-// 			    'step' 		=> 1,
-// 			    'max' 		=> 6,
-// 			    'display_value' => 'text'
-// 			),
-//         )
-//     ) );
+if ( class_exists( 'WooCommerce' ) ) {
+    function get_woocommerce_products() {
+        $args = array(
+            'post_type'      => 'product',
+            'posts_per_page' => -1,
+        );
+    
+        $products = get_posts( $args );
+    
+        $product_options = array();
+    
+        foreach ( $products as $product ) {
+            $product_options[ $product->ID ] = $product->post_title;
+        }
+    
+        return $product_options;
+    }
+    // Product Featured
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Product Featured', 'shtheme' ),
+        'id'               => 'homepage-product-featured',
+        'subsection'       => true,
+        'fields'           => array(
+            array(
+                'id'       => 'list_cat_product_featured_title',
+                'type'     => 'text',
+                'title'    => __( 'Title', 'shtheme' ),
+            ),
 
-// }
+            array(
+                'id'       => 'list_cat_product_featured',
+                'type'     => 'select',
+                'multi'    => true,
+                'title'    => __( 'Select Product', 'shtheme' ),
+                'options'  => get_woocommerce_products(),
+            ),
+            
+            array(
+                'id'       => 'list_cat_product_featured_info',
+                'type'     => 'info',
+                
+            ),
+
+			array(
+			    'id' 		=> 'number_product_featured_row',
+			    'type' 		=> 'slider',
+			    'title' 	=> __('Enter number product per row', 'shtheme'),
+			    'default' 	=> 3,
+			    'min' 		=> 1,
+			    'step' 		=> 1,
+			    'max' 		=> 6,
+			    'display_value' => 'text'
+			),
+        )
+    ) );
+
+    // 
+
+	Redux::setSection( $opt_name, array(
+        'title'            => __( 'Product', 'shtheme' ),
+        'id'               => 'homepage-product',
+        'subsection'       => true,
+        'fields'           => array(
+            array(
+                'id'       => 'list_cat_product',
+                'type'     => 'select',
+                'multi'    => true,
+                'title'    => __( 'Select categories', 'shtheme' ),
+                'data' => 'terms',
+				'args' => array(
+				    'taxonomies' => array( 'product_cat' ),
+				    'hide_empty' => false,
+				),
+            ),
+            array(
+			    'id' 		=> 'number_product',
+			    'type' 		=> 'slider',
+			    'title' 	=> __('Enter number product', 'shtheme'),
+			    'default' 	=> 3,
+			    'min' 		=> 0,
+			    'step' 		=> 1,
+			    'max' 		=> 50,
+			    'display_value' => 'text'
+			),
+			array(
+			    'id' 		=> 'number_product_row',
+			    'type' 		=> 'slider',
+			    'title' 	=> __('Enter number product per row', 'shtheme'),
+			    'default' 	=> 3,
+			    'min' 		=> 1,
+			    'step' 		=> 1,
+			    'max' 		=> 6,
+			    'display_value' => 'text'
+			),
+        )
+    ) );
+
+}
 
 // -> Blog Post
 Redux::setSection( $opt_name, array(
@@ -887,9 +944,9 @@ Redux::setSection( $opt_name, array(
     )
 ) );
 
-// -> 3B Developer
+// -> Developer
 Redux::setSection( $opt_name, array(
-    'title'            => __( '3B Developer', 'shtheme' ),
+    'title'            => __( 'Developer', 'shtheme' ),
     'id'               => 'function',
     'icon'             => 'el el-adjust-alt',
     'permissions'      => 'administrator',
