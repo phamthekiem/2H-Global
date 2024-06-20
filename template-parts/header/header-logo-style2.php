@@ -33,13 +33,25 @@ global $sh_option;
 				</span>
 			</a>
 			<div class="row align-items-center">
-				<div class="col-xl-3 col-lg-2">
+				<div class="col-xl-2 col-lg-2">
 					<div class="logo">
 						<?php display_logo();?>
 					</div>
 				</div>
+				<div class="col-xl-1"></div>
 				<div class="col-xl-9 col-lg-10">
-					Content
+					<div class="row justify-content-between align-items-center">
+						<div class="col-5">
+							<div class="p-4 my-border rounded-pill d-flex justify-content-between">
+								<input class="w-75" type="search" placeholder="Search">
+								<button class="w-20 border-0 bg-white"><i class="fa-solid fa-magnifying-glass"></i></button>
+							</div>
+						</div>
+
+						<div class="col-5">
+							
+						</div>
+					</div>
 					<?php do_action( 'sh_after_menu' );?>
 				</div>
 			</div>
