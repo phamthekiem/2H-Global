@@ -529,6 +529,7 @@ if ( class_exists( 'WooCommerce' ) ) {
                 'id'       => 'list_cat_product',
                 'type'     => 'select',
                 'multi'    => true,
+                'sortable' => true,
                 'title'    => __( 'Select categories', 'shtheme' ),
                 'data' => 'terms',
 				'args' => array(

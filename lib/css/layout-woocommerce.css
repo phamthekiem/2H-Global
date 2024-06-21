@@ -163,8 +163,8 @@
     position: relative;
     width: 100%;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 /* 2 columns */
 .sh-product-shortcode.column-2 .row.list-products:not(.list) li.product {
