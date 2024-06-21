@@ -480,13 +480,13 @@ if ( class_exists( 'WooCommerce' ) ) {
         'subsection'       => true,
         'fields'           => array(
             array(
-                'id'       => 'list_cat_product_featured_title',
+                'id'       => 'list_product_featured_title',
                 'type'     => 'text',
                 'title'    => __( 'Title', 'shtheme' ),
             ),
 
             array(
-                'id'       => 'list_cat_product_featured',
+                'id'       => 'list_product_featured',
                 'type'     => 'select',
                 'multi'    => true,
                 'title'    => __( 'Select Product', 'shtheme' ),
@@ -494,7 +494,7 @@ if ( class_exists( 'WooCommerce' ) ) {
             ),
             
             array(
-                'id'       => 'list_cat_product_featured_info',
+                'id'       => 'list_product_featured_info',
                 'type'     => 'info',
                 
             ),
@@ -509,6 +509,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 			    'max' 		=> 6,
 			    'display_value' => 'text'
 			),
+
+//            array(
+//                'id'       => 'list_product_featured_banner',
+//                'type'     => 'media',
+//                'title'    => __( 'Product Featured Banner', 'shtheme' ),
+//            ),
         )
     ) );
 
