@@ -124,9 +124,12 @@ function create_slide_carousel(){
 								echo '<img class="d-block w-100" src="'. $value['image'] .'" alt="'. $value['title'] .'">';
 							}
 							if( $value['title'] || $value['description'] ) {
-								echo '<div class="carousel-caption d-none d-md-block">';
+								echo '<div class="carousel-caption d-md-flex">';
 									echo '<h3>'. $value['title'] .'</h3>';
 									echo '<p>'. $value['description'] .'</p>';
+									echo '<div class="show-now">';
+										echo '<a href="'. $value['url'] .'">SHOW NOW</a>';
+									echo '</div>';
 								echo '</div>';
 							}
 						echo '</div>';
@@ -134,12 +137,10 @@ function create_slide_carousel(){
 					}
 				echo '</div>';
 				echo '<a class="carousel-control-prev" href="#carouselMainSlide" role="button" data-slide="prev">';
-					echo '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
-					echo '<span class="sr-only">Previous</span>';
+					echo '<i class="fa-solid fa-angle-left"></i>';
 				echo '</a>';
 				echo '<a class="carousel-control-next" href="#carouselMainSlide" role="button" data-slide="next">';
-					echo '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
-					echo '<span class="sr-only">Next</span>';
+					echo '<i class="fa-solid fa-angle-right"></i>';
 				echo '</a>';
 			echo '</div>';
 		echo '</div>';
