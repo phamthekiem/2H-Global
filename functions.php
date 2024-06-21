@@ -234,3 +234,30 @@ function remove_head_scripts() {
 **/
 add_image_size( 'sh_thumb300x200', 300, 200, array( 'center', 'center' ) );
 
+// WP - CDN
+add_filter('wp_get_attachment_image_src', 'replace_media_url');
+function replace_media_url($url) {
+    $custom_url = 'https://storage.googleapis.com/cdn.2hglobalgate.com';
+    $path = 'polo4man.com';
+
+    if(strpos($url[0], 'wp-content/uploads') !== false) {
+        $url = str_replace('wp-content/uploads', $path, $url);
+        $url = str_replace(site_url(), $custom_url, $url);
+    }
+
+    return $url;
+}
+
+add_filter('wp_get_attachment_image_src', 'custom_modify_image_src', 10, 4);
+function custom_modify_image_src($image, $attachment_id, $size, $icon) {
+    if (isset($image[0]) && preg_match('/\/\d{4}\/\d{2}\/\d{4}\/\d{2}\//', $image[0])) {
+        $image[0] = preg_replace('/polo4man.com\/\d{4}\/\d{2}\//', 'polo4man.com/', $image[0], 1);
+    }
+    return $image;
+}
+
+// delete srcset
+function remove_img_srcset($sources) {
+    return false;
+}
+add_filter('wp_calculate_image_srcset', 'remove_img_srcset');

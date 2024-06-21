@@ -196,18 +196,19 @@ button.loading, input[type='button'].loading, input[type='reset'].loading, input
     background: linear-gradient(-180deg,#e52025 2%,#d81116 96%);   
 }
 /* Minicart */
+.navbar-actions {
+    text-align: right;
+}
 .shopping-cart {
+    position: relative;
     display: inline-block;
-    position: absolute;
-    right: 0;
 }
 .shopping-cart .shopping-cart-icon-wrapper {
     display: inline-block;
     position: relative;
 }
 .shopping-cart .shopping-cart-menu-title {
-    display: inline-block;
-    margin-right: 5px;
+
 }
 .shopping-cart .shopping-cart-icon-wrapper img {
     padding: 11px 16px;
@@ -219,7 +220,7 @@ button.loading, input[type='button'].loading, input[type='reset'].loading, input
     display: block;
     min-width: 20px;
     padding: 1px;
-    background: #ff4612;
+    background: #fc6514;
     position: absolute;
     top: -10px;
     right: -10px;
@@ -1098,3 +1099,37 @@ td.product-total, .shop_table tfoot tr td, .cart_totals tbody tr td, .shop_table
 /*--------------------------------------------------------------
 # Custom Css
 --------------------------------------------------------------*/
+.collection-shop-all a[href] {
+    background-color: #f7921f;
+    color: #fff;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding: 0 3rem;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    transition: all .35s ease-Out;
+    border: 1px solid transparent;
+    min-width: calc(12rem + 2px);
+    min-height: calc(4.5rem + 2px);
+    letter-spacing: .1rem;
+    line-height: calc(2);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.collection-shop-all a[href]:hover {
+    border: 1px solid #f7921f;
+    color: #f7921f;
+    background-color: #fff;
+    transition: all .35s ease-in;
+    -webkit-transition: all .35s ease-in;
+    -moz-transition: all .35s ease-in;
+    -ms-transition: all .35s ease-in;
+    -o-transition: all .35s ease-in;
+}
