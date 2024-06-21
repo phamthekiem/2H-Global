@@ -33,13 +33,14 @@ global $sh_option;
 				</span>
 			</a>
 			<div class="row align-items-center">
-				<div class="col-xl-2 col-lg-2">
+				<div class="col-1 d-lg-none"></div>
+				<div class="col-4 ml-2 ml-lg-0 col-xl-2 col-lg-2">
 					<div class="logo">
 						<?php display_logo();?>
 					</div>
 				</div>
-				<div class="col-xl-1"></div>
-				<div class="col-xl-9 col-lg-10">
+				<div class="col-1 col-xl-1"></div>
+				<div class="d-none d-lg-block col-xl-9 col-lg-10">
 					<div class="row justify-content-between align-items-center">
 						<div class="col-5">
 							<div class="p-4 my-border rounded-pill d-flex justify-content-between">
