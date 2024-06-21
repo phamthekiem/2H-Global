@@ -833,7 +833,7 @@ if ( class_exists( 'WooCommerce' ) ) {
                 'default'   => 3,
                 'min'       => 1,
                 'step'      => 1,
-                'max'       => 6,
+                'max'       => 20,
                 'display_value' => 'text',
                 'required'  => array('display-relatedpro','equals',true),
             ),
@@ -853,9 +853,33 @@ if ( class_exists( 'WooCommerce' ) ) {
                 'type'      => 'section',
                 'indent'    => false,
             ),
+
+            array(
+                'id'    => 'shipping-returns',
+                'type'  => 'select',
+                'title' => __('Shipping & Returns', 'shtheme'),
+                'data'  => 'page'
+            ),
         )
     ) );
 
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Size Guide', 'shtheme' ),
+        'id'               => 'size-guide',
+        'subsection'       => true,
+        'fields'           => array(
+            array(
+                'id'    => 'size-chart',
+                'type'  => 'slides',
+                'title' => __('Size Chart', 'shtheme'),
+                'show'  => array(
+                    'title' => true,
+                    'description'   => false,
+                    'url'   => false
+                ),
+            ),
+        )
+    ) );
 }
 
 // -> Social

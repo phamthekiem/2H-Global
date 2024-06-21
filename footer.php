@@ -38,7 +38,7 @@ do_action( 'sh_after_content_sidebar_wrap' );
 							<?php if( $sh_option['footer-copyright'] ) : echo $sh_option['footer-copyright'];endif;?>
 						</div>
 						<div class="col-sm-6 text-right">
-							
+                            <img src="<?php bloginfo('template_directory'); ?>/lib/images/icon_paymeny.webp" alt="icon_paymeny">
 						</div>
 					</div>
 				</div>
