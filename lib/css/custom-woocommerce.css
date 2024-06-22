@@ -723,7 +723,6 @@ html .woocommerce .quantity .minus, html .woocommerce-page .quantity .minus {
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs {
     padding: 0;
-    border-bottom: 1px solid #cccccc;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs::before {
     border-bottom: none;
@@ -754,9 +753,8 @@ html .woocommerce .quantity .minus, html .woocommerce-page .quantity .minus {
 	display: none;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
-    color: #333333;
-    background: #FFF;
-    border-bottom: 2px solid #337ab7;
+    color: #fff;
+    background: var(--color-base);
 }
 .woocommerce .wc-tab h2.woocommerce-Reviews-title, .woocommerce .wc-tab h2.woocommerce-description-title {
     display: none;
@@ -1099,8 +1097,8 @@ td.product-total, .shop_table tfoot tr td, .cart_totals tbody tr td, .shop_table
 --------------------------------------------------------------*/
 .collection-shop-all a[href] {
     background-color: var(--color-base);
+    margin-bottom: 2em;
     color: #fff;
-    margin-top: 2rem;
     position: relative;
     overflow: hidden;
     padding: 0 3rem;
