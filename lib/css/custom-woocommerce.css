@@ -478,7 +478,7 @@ button.loading, input[type='button'].loading, input[type='reset'].loading, input
 --------------------------------------------------------------*/
 .woocommerce div.product .product_title {
 	font-weight: bold;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	font-size: 18px;
 	color: #333333;
     margin: 10px 0;

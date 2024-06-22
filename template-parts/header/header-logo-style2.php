@@ -40,15 +40,15 @@ global $sh_option;
 					</div>
 				</div>
 				<div class="col-1 col-xl-1"></div>
-				<div class="d-lg-block col-lg-10 col-xl-10">
+				<div class="d-lg-block col-lg-10 col-xl-10 my-form-box">
 					<div class="row justify-content-between align-items-center header-cart_wishlish">
-						<div class="d-none d-lg-block col-6">
+						<div class="d-none d-lg-block col-7">
 							<div class="p-3 my-border rounded-pill d-flex justify-content-between">
                                 <form class="my-form" action="<?php bloginfo('url'); ?>/" method="GET" role="form">
                                     <div class="row">
 										<input type="hidden" name="post_type" value="product">
 										<div class="col-10">
-											<input class="border-0 outline-0" type="text" class="form-control" id="name" name="s" placeholder="Search...">
+											<input class="border-0 outline-0 w-100" type="text" class="form-control" id="name" name="s" placeholder="Search...">
 										</div>
 										<div class="col-2 d-flex align-items-center">
 											<button type="submit" class="bg-white text-dark border-0 h3 p-0 mb-0 ml-5"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -58,7 +58,8 @@ global $sh_option;
 							</div>
 						</div>
 
-						<div class="col-2 d-flex justify-content-end">
+						<div class="col-4 d-flex justify-content-end align-items-end">
+							<a class="mr-5" href="/orders-tracking">Track Order</a>
                             <div class="wishlist-page mr-5">
                                 <a href="/wishlist" title="<?php _e('View wishlish', 'woocommerce');?>">
                                     <div class="d-flex flex-column align-items-center justify-content-center">
