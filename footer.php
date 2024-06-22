@@ -16,7 +16,7 @@ do_action( 'sh_after_content_sidebar_wrap' );
 	</div><!-- #content -->
 
     <div class="footer-form-contact">
-        <?php echo do_shortcode('[contact-form-7 id="521997b" title="Form Footer"]'); ?>
+        <?php echo do_shortcode('[contact-form-7 id="f8c9bf8" title="Form Footer"]'); ?>
     </div>
 
 	<footer id="footer" class="site-footer" itemscope itemtype="https://schema.org/WPFooter">

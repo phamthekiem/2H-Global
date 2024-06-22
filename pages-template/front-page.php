@@ -85,6 +85,10 @@ get_header(); ?>
                             $j = 1;
                             $k = 1;
                             echo '<div class="heading-sub-cat-product">';
+                                echo '<div class="banner-cat">';
+                                    echo '<img class="img-fluid" src="' . wp_get_attachment_url($thumbnail_id) . '">';
+                                echo '</div>';
+
                                 echo '<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">';
                                     foreach ($child_categories as $child_category) {
                                         echo '<li class="nav-item" role="presentation">';
@@ -124,9 +128,6 @@ get_header(); ?>
                                     echo '<a href="'. get_term_link((int)$idpost, 'product_cat'). '">Shop All</a>';
                                 echo '</div>';
 
-                                echo '<div class="banner-cat">';
-                                    echo '<img class="img-fluid" src="' . wp_get_attachment_url($thumbnail_id) . '">';
-                                echo '</div>';
                             echo '</div>';
                         }
                     echo '</div>';

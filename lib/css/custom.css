@@ -2,17 +2,11 @@
 
 :root {
     --color-base: #005395;
+    --color-secondary: #c8e3ff;
+    --color-gray: #f2f2f2;
     --font-body-family: "Assistant", sans-serif;
     --font-body-weight: 400;
     --font-heading-family: "Nunito Sans", sans-serif;
-}
-
-.logo {
-    padding: 2em 2em 2em 0;
-}
-
-.my-border {
-    border: 1px solid #000;
 }
 
 #masthead {
@@ -47,6 +41,7 @@
     font-family: var(--font-body-family);
     font-weight: 700;
     letter-spacing: 1px;
+    border: none;
 }
 
 #primary-menu ul {
@@ -71,7 +66,7 @@
 #primary-menu>.menu-item>.sub-menu {
     display: flex;
     margin-top: 1px;
-    margin-left: -120%;
+    margin-left: -8vw;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding: 1em;
 }
@@ -94,6 +89,24 @@
 
 #primary-menu>.menu-item>.sub-menu>.menu-item>.sub-menu>.menu-item a{
     font-weight: normal;
+}
+
+/* Form Search */
+.my-form {
+    width: 100%;
+}
+
+.my-border {
+    border: 1px solid #000;
+    transition: all 0.25s ease;
+}
+
+.my-border:hover {
+    border-color: var(--color-base);
+}
+
+.my-form input {
+    outline: none;
 }
 
 /* Banner */
@@ -192,6 +205,10 @@
 }
 
 /* Product */
+.product-wrap {
+    margin-top: 5rem;
+}
+
 .product:hover .wrap-product{
     box-shadow: none !important;
 }
@@ -228,6 +245,68 @@
 .wrap-product .price>span::after {
     content: ' USD';
 }
+
+/* Tabs */
+.heading-sub-cat-product ul {
+    justify-content: center;
+}
+
+.heading-sub-cat-product ul li {
+    width: 25%;
+    padding: 9px;
+}
+
+.heading-sub-cat-product ul li a {
+    background-color: var(--color-gray);
+    padding: 1.5rem;
+    border-radius: 1em !important;
+    text-align: center;
+    font-weight: 700;
+}
+
+.heading-sub-cat-product ul li .active {
+    background-color: var(--color-base) !important;
+}
+
+/* Form */
+.footer-form-contact {
+    background-color: var(--color-secondary);
+    margin: 5em 0 0 0;
+    display: flex;
+    justify-content: center;
+    padding: 8rem;
+}
+
+.footer-form-contact h3 {
+    font-size: 2.5rem;
+    margin-bottom: .75em;
+}
+
+.footer-form-contact p {
+    display: flex;
+}
+
+.footer-form-contact input {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-base);
+}
+
+.footer-form-contact input[type="email"] {
+    margin-right: 1em;
+    transition: all 0.25s ease;
+}
+
+.footer-form-contact input[type="email"]:focus-visible {
+    outline: 1px solid var(--color-base);
+}
+
+.footer-form-contact input[type="submit"] {
+    color: #fff;
+    background-color: var(--color-base);
+    font-weight: 700;
+}
+
 
 /* Footer */
 .footer-widgets {
@@ -268,16 +347,55 @@
 #showmenu {
     right: auto !important;
     left: 0;
-    top: 3.2rem !important;
+    top: 3.3rem !important;
+}
+
+@media (max-width: 1024px) {
+    .header-top-right .header-cart_wishlish {
+        position: absolute;
+        top: -55px;
+        right: 20px;
+        justify-content: end ! IMPORTANT;
+    }
 }
 
 @media (max-width: 768px) {
+    .header-top-right .header-cart_wishlish {
+        position: absolute;
+        top: -55px;
+        right: 20px;
+        justify-content: end ! IMPORTANT;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-top-right .header-cart_wishlish {
+        position: absolute;
+        top: -55px;
+        right: 20px;
+        justify-content: end ! IMPORTANT;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header .header-content {
+        margin-top: 1rem !important;
+    }
     #content {
         margin-top: -2em;
     }
 
-    .logo {
-        padding: 2rem;
+    .logo img {
+        margin-bottom: 15px;
+    }
+    .header-top-right {
+        margin-left: 0px;
+    }
+    .header-top-right .header-cart_wishlish {
+        position: absolute;
+        top: -55px;
+        right: 20px;
+        justify-content: end ! IMPORTANT;
     }
 
     .menu-menu-1-container {
@@ -303,5 +421,46 @@
         border-radius: 1rem;
         padding: .5em .75em;
         font-weight: 700;
+    }
+
+    .heading-sub-cat-product ul li {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .wpcf7 {
+        width: 90vw;
+    }
+
+    .footer-form-contact {
+        padding: 2rem 0 0 1rem;
+    }
+
+    .footer-form-contact h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        width: 90vw;
+        font-weight: 700;
+    }
+
+    .footer-form-contact p {
+        flex-wrap: wrap;
+    }
+
+    .footer-form-contact input {
+        width: 90vw;
+        margin: .5rem 0;
+    }
+
+    .footer-form-contact .wpcf7-spinner {
+        display: none;
+    }
+
+    .wishlist-page span {
+        display: none;
+    }
+
+    .shopping-cart-menu-title {
+        display: none;
     }
 }
