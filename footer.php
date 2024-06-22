@@ -13,6 +13,7 @@ global $sh_option;
 do_action( 'sh_after_content_sidebar_wrap' );
 ?>
 		</div>
+		</div>
 	</div><!-- #content -->
 
     <div class="footer-form-contact">
