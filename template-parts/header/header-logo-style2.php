@@ -39,7 +39,6 @@ global $sh_option;
 						<?php display_logo();?>
 					</div>
 				</div>
-				<div class="col-1 col-xl-1"></div>
 				<div class="d-lg-block col-lg-10 col-xl-10 my-form-box">
 					<div class="row justify-content-between align-items-center header-cart_wishlish">
 						<div class="d-none d-lg-block col-7">
@@ -59,7 +58,7 @@ global $sh_option;
 						</div>
 
 						<div class="col-4 d-flex justify-content-end align-items-end">
-							<a class="mr-5" href="/orders-tracking">Track Order</a>
+							<a class="mr-5 orders-tracking" href="/orders-tracking">Track Order</a>
                             <div class="wishlist-page mr-5">
                                 <a href="/wishlist" title="<?php _e('View wishlish', 'woocommerce');?>">
                                     <div class="d-flex flex-column align-items-center justify-content-center">
@@ -75,7 +74,7 @@ global $sh_option;
 						</div>
 					</div>
 
-                    <div class="mobile-btn-search d-block d-lg-none">
+                    <div class="mobile-btn-search d-inline d-lg-none">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchModal">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
