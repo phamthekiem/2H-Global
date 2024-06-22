@@ -78,43 +78,53 @@ if( $sh_option['display-hierarchy-woocommerce'] == '1' && ! is_shop() && is_prod
 
 if ( have_posts() ) {
 
-	echo '<div class="d-flex align-items-center switcher-wrap">';
-		/**
-		 * Hook: woocommerce_before_shop_loop.
-		 *
-		 * @hooked wc_print_notices - 10
-		 * @hooked woocommerce_result_count - 20
-		 * @hooked woocommerce_catalog_ordering - 30
-		 */
-		do_action( 'woocommerce_before_shop_loop' );
-	echo '</div>';
+    echo '<div class="row">';
 
-	woocommerce_product_loop_start();
+        echo '<div class="col-md-3 col-12">';
+            dynamic_sidebar( 'sidebar-shop' );
+        echo '</div>';
 
-	if ( wc_get_loop_prop( 'total' ) ) {
-		
-		while ( have_posts() ) {
-			the_post();
+        echo '<div class="col-md-9 col-12">';
+            echo '<div class="d-flex align-items-center switcher-wrap">';
+            /**
+             * Hook: woocommerce_before_shop_loop.
+             *
+             * @hooked wc_print_notices - 10
+             * @hooked woocommerce_result_count - 20
+             * @hooked woocommerce_catalog_ordering - 30
+             */
+            do_action( 'woocommerce_before_shop_loop' );
+            echo '</div>';
 
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 *
-			 * @hooked WC_Structured_Data::generate_product_data() - 10
-			 */
-			do_action( 'woocommerce_shop_loop' );
+            woocommerce_product_loop_start();
 
-			wc_get_template_part( 'content', 'product' );
-		}
-	}
+            if ( wc_get_loop_prop( 'total' ) ) {
 
-	woocommerce_product_loop_end();
+                while ( have_posts() ) {
+                    the_post();
 
-	/**
-	 * Hook: woocommerce_after_shop_loop.
-	 *
-	 * @hooked woocommerce_pagination - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop' );
+                    /**
+                     * Hook: woocommerce_shop_loop.
+                     *
+                     * @hooked WC_Structured_Data::generate_product_data() - 10
+                     */
+                    do_action( 'woocommerce_shop_loop' );
+
+                    wc_get_template_part( 'content', 'product' );
+                }
+            }
+
+            woocommerce_product_loop_end();
+
+            /**
+             * Hook: woocommerce_after_shop_loop.
+             *
+             * @hooked woocommerce_pagination - 10
+             */
+            do_action( 'woocommerce_after_shop_loop' );
+        echo '</div>';
+
+    echo '</div>';
 
 } else {
 	/**
@@ -130,13 +140,13 @@ if ( have_posts() ) {
  *
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
-do_action( 'woocommerce_after_main_content' );
+//do_action( 'woocommerce_after_main_content' );
 
 /**
  * Hook: woocommerce_sidebar.
  *
  * @hooked woocommerce_get_sidebar - 10
  */
-do_action( 'woocommerce_sidebar' );
+//do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );

@@ -35,8 +35,8 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
 /**
  * Setup Layout Page Woocommerce
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+//remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+//remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
 function my_theme_wrapper_start() {
 	echo '<div class="content-sidebar-wrap">';
@@ -53,8 +53,6 @@ function my_theme_wrapper_end() {
 		echo '<aside class="sidebar sidebar-primary sidebar-shop" itemscope itemtype="https://schema.org/WPSideBar">';
 			if( $sh_option['display-shopsidebar'] == 1 ) {
 				dynamic_sidebar( 'sidebar-shop' );
-			} else {
-				dynamic_sidebar( 'sidebar-1' );
 			}
 		echo '</aside>';
 	}
@@ -178,22 +176,34 @@ function woo_remove_product_tabs( $tabs ) {
 }
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
-function woo_rename_tabs( $tabs ) {
-	$tabs['description']['title'] 	= __( 'Information', 'shtheme' );
-	$tabs['image']['title'] 		= __( 'Gallery', 'shtheme' );
-	$tabs['video']['title'] 		= __( 'Video', 'shtheme' );
-	$tabs['document']['title'] 		= __( 'Attachments', 'shtheme' );
+function woo_shipping_returns_tabs( $tabs ) {
+	$tabs['shipping_returns']['title'] 	= __( 'Shipping & Returns', 'shtheme' );
 
-	$tabs['image']['priority']		= 50;
-	$tabs['video']['priority']		= 60;
-	$tabs['document']['priority']	= 70;
+	$tabs['shipping_returns']['priority']		= 20;
 
-	$tabs['image']['callback']		= 'content_tab_image';
-	$tabs['video']['callback']		= 'content_tab_video';
-	$tabs['document']['callback']	= 'content_tab_document';
+	$tabs['shipping_returns']['callback']		= 'content_tab_shipping_returns';
 	return $tabs;
 }
-// add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+add_filter( 'woocommerce_product_tabs', 'woo_shipping_returns_tabs', 98 );
+
+function content_tab_shipping_returns() {
+    global $sh_option;
+    $shipping_returns 	= $sh_option['shipping-returns'];
+    if( $shipping_returns ) {
+        $args = array(
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'p' => $shipping_returns,
+        );
+        $posts = get_posts($args);
+        if (!empty($posts)) {
+            echo apply_filters('the_content', $posts[0]->post_content);
+        }
+    } else {
+        _e('Content is updating...','shtheme');
+    }
+
+}
 
 /**
  * Customizer number product related
@@ -380,24 +390,34 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart
 /**
  * Button Detail In File content-product.php
  */
-function insert_btn_detail(){
+function insert_size_chart_detail(){
 	?>
-	<div class="text-center wrap-detail">
+    <div class="add-wishlist-detail">
+        <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
+    </div>
+	<div class="add-size-chart">
 		<a href="<?php the_permalink( );?>" title="<?php _e( 'View detail', 'shtheme' );?>">
 			<?php _e( 'View detail', 'shtheme' );?>
 		</a>
 	</div>
 	<?php
 }
-// add_action( 'woocommerce_after_shop_loop_item','insert_btn_detail',15 );
+add_action( 'woocommerce_single_product_summary','insert_size_chart_detail',35 );
+
+function insert_wishlist_detail(){
+    ?>
+
+    <?php
+}
+add_action( 'woocommerce_single_product_summary','insert_wishlist_detail',25 );
 
 /**
  * Hook Woocommerce
  */
 // File archive-product.php
-// remove_action( 'woocommerce_before_shop_loop','woocommerce_result_count',20 );
-// remove_action( 'woocommerce_before_shop_loop','woocommerce_catalog_ordering',30 );
-remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb',20 );
+remove_action( 'woocommerce_before_shop_loop','woocommerce_result_count',20 );
+ remove_action( 'woocommerce_before_shop_loop','woocommerce_catalog_ordering',30 );
+//remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb',20 );
 remove_action( 'woocommerce_sidebar','woocommerce_get_sidebar',10 );
 
 // File content-product.php
