@@ -41,14 +41,21 @@ Tags: kiem.phamthe
 # Normalize
 --------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700,700i&subset=vietnamese');
+/*@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700,700i&subset=vietnamese');*/
+:root {
+	--color-base: #005395;
+	--color-secondary: #c8e3ff;
+	--color-gray: #f2f2f2;
+	--color-purple: red;
+	--color-darkred: darkred
+}
 
 html {
 	font-size: 62.5%;
 }
 
 body {
-	font-family: 'Montserrat', Arial, sans-serif;
+	/*font-family: 'Montserrat', Arial, sans-serif;*/
 	font-size: 14px;
 }
 
@@ -2227,7 +2234,7 @@ object {
 #mobilenav li {
 	display: block;
 	position: relative;
-	overflow: auto;
+	/*overflow: auto;*/
 }
 
 #mobilenav li a {
@@ -2520,7 +2527,144 @@ object {
 /*--------------------------------------------------------------
 ## Custom Css 
 --------------------------------------------------------------*/
+.add-size-chart {
+	margin: 20px 0;
+}
+.add-size-chart .btn.btn-primary {
+	color: #fff;
+	background-color: var(--color-base);
+	border-color: var(--color-base);
+	border-radius: 25px;
+	padding: 7px 12px;
+	font-size: 13px;
+	font-weight: 600;
+}
+.add-size-chart .modal-header {
+	border: none;
+	padding-bottom: 0;
+}
+.modal-header .close {
+	font-size: 34px;
+	padding-top: 0;
+}
+.add-size-chart .nav-pills .nav-link {
+	border-radius: .25rem;
+	font-size: 15px;
+	font-weight: 500;
+	margin-right: 12px;
+}
+.add-size-chart .nav-pills .nav-link.active {
+	color: #fff;
+	background-color: var(--color-base);
+}
+td.wc-block-cart-item__product .wc-block-components-product-name {
+	color: var(--color-base);
+	font-weight: 600;
+	font-size: 15px;
+}
+td.wc-block-cart-item__product .wc-block-cart-item__prices {
+	color: red;
+	font-weight: 500;
+	font-size: 15px;
+}
+td.wc-block-cart-item__product .wc-block-components-product-badge.wc-block-components-sale-badge {
+	font-weight: 500;
+	display: block;
+	font-size: 13px;
+	border: none;
+	padding: 0;
+	text-decoration: underline;
+}
+td.wc-block-cart-item__product .wc-block-components-product-metadata {
+	width: 50%;
+	float: left;
+	font-size: 14px;
+}
+td.wc-block-cart-item__product button.wc-block-cart-item__remove-link {
+	font-size: 14px !important;
+	color: red !important;
+	font-weight: 500 !important;
+}
 
+td.wc-block-cart-item__total .wc-block-components-product-price__value {
+	font-size: 18px;
+	font-weight: 600;
+	color: darkred;
+}
+td.wc-block-cart-item__total .wc-block-components-sale-badge {
+	font-size: 14px;
+	border-color: darkred;
+	font-weight: 600;
+}
+tr.wc-block-cart-items__header .is-large.wc-block-cart .wc-block-cart-items th {
+	font-size: 14px;
+}
+.wc-block-components-sidebar .wc-block-cart__totals-title,
+.is-large.wc-block-cart .wc-block-cart-items th {
+	font-size: 14px !important;
+}
+.wc-block-components-formatted-money-amount {
+	color: red;
+}
+.wp-block-woocommerce-proceed-to-checkout-block .wc-block-cart__submit-container {
+	padding: 0;
+	background: var(--color-base);
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+.wp-block-woocommerce-proceed-to-checkout-block .wc-block-cart__submit-container a {
+	color: #fff;
+}
+.wc-block-components-button:not(.is-link) {
+	border: none;
+	background: var(--color-base);
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.wc-block-components-order-summary .wc-block-components-order-summary-item__quantity {
+	border: 1px solid var(--color-base) !important;
+	color: #000 !important;
+	padding: 3px .4em !important;
+}
+.wc-block-checkout__sidebar .wc-block-components-product-name {
+	font-weight: 600;
+}
+.wc-block-components-order-summary .wc-block-components-order-summary__button-text {
+	font-weight: 600;
+	color: var(--color-base);
+}
+
+/*Mobile toggle sidebar*/
+.mobile-toggle-sidebar .toggle-content {
+	position: fixed;
+	top: 0;
+	left: -80%; /* Start off-screen */
+	width: 80%;
+	height: 100%;
+	background-color: white;
+	box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+	transition: left 0.3s ease-in-out; /* Smooth transition */
+	z-index: 1050; /* Ensure it appears on top */
+}
+.mobile-toggle-sidebar .toggle-content.show {
+	left: 0; /* Slide in */
+}
+.mobile-toggle-sidebar .toggle-backdrop {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 1049; /* Behind the toggle content */
+}
+.mobile-toggle-sidebar .toggle-backdrop.show {
+	display: block;
+}
 
 /*--------------------------------------------------------------
 ## Responsive 

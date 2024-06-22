@@ -391,32 +391,76 @@ add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart
  * Button Detail In File content-product.php
  */
 function insert_size_chart_detail(){
+    global $sh_option;
 	?>
-    <div class="add-wishlist-detail">
-        <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]') ?>
-    </div>
 	<div class="add-size-chart">
-		<a href="<?php the_permalink( );?>" title="<?php _e( 'View detail', 'shtheme' );?>">
-			<?php _e( 'View detail', 'shtheme' );?>
-		</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sizehart">SIZE GUIDE</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="sizehart" tabindex="-1" role="dialog" aria-labelledby="sizeChartTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                        $sizeChart = $sh_option['size-chart'];
+                        $i = 1;
+                        $j = 1;
+                        if(!empty($sizeChart)){
+                            echo '<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">';
+                                foreach($sizeChart as $size_chart) {
+                                    echo '<li class="nav-item" role="presentation">';
+                                        echo '<a 
+                                                class="nav-link' . (($i === 1) ? ' active' : '') . '" 
+                                                id="' . $size_chart['attachment_id'] . '-tab" 
+                                                data-toggle="pill" 
+                                                href="#tab' . $size_chart['attachment_id'] . '-pill" 
+                                                role="tab" 
+                                                aria-controls="' . $size_chart['attachment_id'] . '-pill" 
+                                                aria-selected="true"
+                                            >';
+                                            echo $size_chart['title'];
+                                        echo '</a>';
+                                    echo '</li>';
+                                    $i++;
+                                }
+                            echo '</ul>';
+                            echo '<div class="tab-content" id="pills-tabContent">';
+                                foreach($sizeChart as $size_chart) {
+                                    echo '<div class="tab-pane fade' . (($j === 1)?'show active' : '') . '" id="tab'. $size_chart['attachment_id']. '-pill" role="tabpanel" aria-labelledby="'. $size_chart['attachment_id']. '-tab">';
+                                        echo '<img src="'. $size_chart['image'] .'" />';
+                                    echo '</div>';
+                                    $j++;
+                                }
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 	<?php
 }
-add_action( 'woocommerce_single_product_summary','insert_size_chart_detail',35 );
+add_action( 'woocommerce_single_product_summary','insert_size_chart_detail',25 );
 
 function insert_wishlist_detail(){
     ?>
 
     <?php
 }
-add_action( 'woocommerce_single_product_summary','insert_wishlist_detail',25 );
+//add_action( 'woocommerce_single_product_summary','insert_wishlist_detail',25 );
 
 /**
  * Hook Woocommerce
  */
 // File archive-product.php
-remove_action( 'woocommerce_before_shop_loop','woocommerce_result_count',20 );
- remove_action( 'woocommerce_before_shop_loop','woocommerce_catalog_ordering',30 );
+//remove_action( 'woocommerce_before_shop_loop','woocommerce_result_count',20 );
+// remove_action( 'woocommerce_before_shop_loop','woocommerce_catalog_ordering',30 );
 //remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb',20 );
 remove_action( 'woocommerce_sidebar','woocommerce_get_sidebar',10 );
 

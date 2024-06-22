@@ -784,8 +784,6 @@ html .woocommerce .quantity .minus, html .woocommerce-page .quantity .minus {
     height: 2px;
     background: #337ab7;
     z-index: 3;
-    max-width: 380px;
-    min-width: 215px;
 }
 @media (min-width: 992px) {
 	.related .slick-carousel .slick-next, 

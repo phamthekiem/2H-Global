@@ -70,11 +70,40 @@ global $sh_option;
                                 </a>
                             </div>
 							
-                            <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]');
-                                do_action( 'sh_after_menu' );
-                            ?>
+                            <?php do_action( 'sh_after_menu' ); ?>
 						</div>
 					</div>
+
+                    <div class="mobile-btn-search d-block d-lg-none">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchModal">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="my-form" action="<?php bloginfo('url'); ?>/" method="GET" role="form">
+                                            <div class="row">
+                                                <input type="hidden" name="post_type" value="product">
+                                                <div class="col-10">
+                                                    <input class="border-0 outline-0" type="text" class="form-control" id="name" name="s" placeholder="Search...">
+                                                </div>
+                                                <div class="col-2 d-flex align-items-center">
+                                                    <button type="submit" class="bg-white text-dark border-0 h3 p-0 mb-0 ml-5"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</div>
